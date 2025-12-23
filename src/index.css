@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@theme {
+  --font-Iran-Sans: Iran-sans;
+  --font-Vazir-Bold: Vazir-Bold;
+  --font-Vazir-Light: Vazir-Light;
+  --font-Vazir-Medium: Vazir-Medium;
+  --font-Vazir-Normal: Vazir-Normal;
+  --font-Vazir-Thin: Vazir-Thin;
+}
+
+/* clerk user button adjust */
+.cl-avatarBox {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+@font-face {
+  font-family: Iran-Sans;
+  src: url(./assets/fonts/Iranian\ Sans.ttf);
+}
+@font-face {
+  font-family: Vazir-Bold;
+  src: url(./assets/fonts/Vazir-Bold-700.woff2);
+}
+@font-face {
+  font-family: Vazir-Light;
+  src: url(./assets/fonts/Vazir-Light-300.woff2);
+}
+@font-face {
+  font-family: Vazir-Medium;
+  src: url(./assets/fonts/Vazir-Medium-500.woff2);
+}
+@font-face {
+  font-family: Vazir-Normal;
+  src: url(./assets/fonts/Vazir-Normal-400.woff2);
+}
+@font-face {
+  font-family: Vazir-Thin;
+  src: url(./assets/fonts/Vazir-Thin-100.woff2);
+}
