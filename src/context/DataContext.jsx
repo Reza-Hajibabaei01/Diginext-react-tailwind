@@ -8,18 +8,36 @@ export const DataProvider = ({ children }) => {
   // دریافت محصولات از api
   const fetchAllProducts = async () => {
     try {
-      const res = await axios.get(
-        "https://fakestoreapi.com/products/category/electronics"
-      );
-      //console.log(res);
+      const res = await axios.get("https://fakestoreapi.com/products/");
+      //category/electronics;
       const productsData = res.data;
       setData(productsData);
     } catch (error) {
       console.log(error);
     }
   };
+
+  const getUniqueCategory = (data, property) => {
+    let newVal = data?.map((curElem) => {
+      return curElem[property];
+    });
+    newVal = ["همه", ...new Set(newVal)];
+    return newVal;
+  };
+
+  const categoryOnlyData = getUniqueCategory(data, "category");
+  const brandOnlyData = getUniqueCategory(data, "brand");
+
   return (
-    <DataContext.Provider value={{ data, setData, fetchAllProducts }}>
+    <DataContext.Provider
+      value={{
+        data,
+        setData,
+        fetchAllProducts,
+        categoryOnlyData,
+        brandOnlyData,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );

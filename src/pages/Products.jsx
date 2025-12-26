@@ -11,9 +11,9 @@ const Products = () => {
   }, []);
   return (
     <div>
-      <div className="max-w-6xl mx-auto px--4 mb-10">
+      <div className="max-w-6xl mx-auto px-4 mb-10">
         {data?.length > 0 ? (
-          <div className="flex gap-8">
+          <div className="flex flex-row-reverse gap-8">
             <FilterSection />
             <div className="grid grid-cols-4 gap-7 mt-10">
               {data?.map((product, index) => {
@@ -29,10 +29,8 @@ const Products = () => {
           </div>
         )}
       </div>
-      
     </div>
   );
 };
-console.log("hii")
 
 export default Products;

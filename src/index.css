@@ -14,10 +14,19 @@
   height: 2.2rem;
 }
 
+/* carousel arrow */
+
 .arrows {
   height: 40px;
   width: 40px;
   margin: 1px;
+}
+
+input {
+  background-color: #ffffff;
+  accent-color: red;
+  border: 1px solid #ccc;
+  color: #333;
 }
 
 @font-face {
