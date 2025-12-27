@@ -3,6 +3,7 @@ import { getData } from "../context/DataContext";
 import FilterSection from "../components/FilterSection";
 import Loading from "../assets/images/Loading4.webm";
 import ProductCard from "../components/ProductCard";
+import Pagination from "../components/Pagination";
 
 const Products = () => {
   const { data, fetchAllProducts } = getData();
@@ -10,7 +11,7 @@ const Products = () => {
   const [category, setCategory] = useState("همه");
   const [brand, setBrand] = useState("همه");
   const [priceRange, setPriceRange] = useState([0, 5000]);
-
+  const [page, setPage] = useState(1);
   useEffect(() => {
     fetchAllProducts();
   }, []);
@@ -23,6 +24,10 @@ const Products = () => {
     setBrand(e.target.value);
   };
 
+  const pageHandler = (selectedPage) => {
+    setPage(selectedPage);
+  };
+
   const filterData = data?.filter(
     (item) =>
       item.title.toLowerCase().includes(search.toLowerCase()) &&
@@ -31,29 +36,47 @@ const Products = () => {
       item.price >= priceRange[0] &&
       item.price <= priceRange[1]
   );
+
+  const dynamicPage = Math.ceil(filterData?.length / 8);
+
   return (
     <div>
       <div className="max-w-6xl mx-auto px-4 mb-10">
         {data?.length > 0 ? (
-          <div className="flex flex-row-reverse gap-8">
-            <FilterSection
-              search={search}
-              setSearch={setSearch}
-              brand={brand}
-              setBrand={setBrand}
-              priceRange={priceRange}
-              setPriceRange={setPriceRange}
-              category={category}
-              setCategory={setCategory}
-              handleCategoryChange={handleCategoryChange}
-              handleBrandChange={handleBrandChange}
-            />
-            <div className="grid grid-cols-4 gap-7 mt-10">
-              {filterData?.map((product, index) => {
-                return <ProductCard key={index} product={product} />;
-              })}
+          <>
+            <div className="flex flex-row-reverse gap-8 ">
+              <FilterSection
+                search={search}
+                setSearch={setSearch}
+                brand={brand}
+                setBrand={setBrand}
+                priceRange={priceRange}
+                setPriceRange={setPriceRange}
+                category={category}
+                setCategory={setCategory}
+                handleCategoryChange={handleCategoryChange}
+                handleBrandChange={handleBrandChange}
+              />
+              {filterData?.length > 0 ? (
+                <div className="flex flex-col justify-center items-center">
+                  <div className="grid grid-cols-4 gap-7 mt-10">
+                    {filterData
+                      ?.slice(page * 8 - 8, page * 8)
+                      .map((product, index) => {
+                        return <ProductCard key={index} product={product} />;
+                      })}
+                  </div>
+                  <Pagination
+                    pageHandler={pageHandler}
+                    page={page}
+                    dynamicPage={dynamicPage}
+                  />
+                </div>
+              ) : (
+                <div></div>
+              )}
             </div>
-          </div>
+          </>
         ) : (
           <div className="flex items-center justify-center h-100">
             <video muted autoPlay loop>
