@@ -10,8 +10,10 @@ import { CgClose } from "react-icons/cg";
 import { FaCaretDown } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
-const Navbar = ({ location, openDropdown, setOpenDropdown,clearLocation}) => {
+const Navbar = ({ location, openDropdown, setOpenDropdown, clearLocation }) => {
+  const { cartItem } = useCart();
   const toggleDropdown = () => {
     setOpenDropdown(!openDropdown);
   };
@@ -113,7 +115,7 @@ const Navbar = ({ location, openDropdown, setOpenDropdown,clearLocation}) => {
           <Link to={"/cart"} className="relative">
             <IoCartOutline className="h-6 w-6" />
             <span className="bg-red-500 px-2 rounded-full absolute -top-3 -right-3 text-white">
-              0
+              {cartItem.length}
             </span>
           </Link>
           {/* بخش ورود با گوگل */}

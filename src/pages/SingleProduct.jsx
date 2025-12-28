@@ -76,7 +76,7 @@ function SingleProduct() {
                 />
               </div>
               <div className="flex flex-row-reverse gap-4 mt-4">
-                <button className="flex px-6 gap-2 py-2 text-lg bg-red-500 text-white rounded-md font-Vazir-Normal">
+                <button className="flex px-6 gap-2 py-2 text-lg bg-red-500 text-white cursor-pointer rounded-md font-Vazir-Normal">
                   <IoCartOutline className="w-6 h-6" />
                   افزودن به سبد خرید
                 </button>
