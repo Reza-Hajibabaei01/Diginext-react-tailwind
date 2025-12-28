@@ -10,7 +10,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-200 py-10 text-right">
+    <footer className="bg-gray-900 md:px-8 text-gray-200 py-10 text-right">
       <div className="max-w-7xl mx-auto px-4 md:flex md:justify-between flex-row-reverse">
         {/*  بخش اطلاعات */}
         <div className="mb-6 md:mb-0">

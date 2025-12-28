@@ -17,7 +17,7 @@ const Navbar = ({ location, openDropdown, setOpenDropdown,clearLocation}) => {
   };
 
   return (
-    <div className="bg-white py-3 shadow-2xl">
+    <div className="bg-white py-3 md:px-8 shadow-2xl">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* بخش لوگو سایت */}
         <div className="flex gap-7 items-center">
