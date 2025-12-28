@@ -79,7 +79,7 @@ function Carousel() {
           return (
             <div
               key={index}
-              className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e ] -z-10"
+              className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e ] -z-10 md:px-8"
             >
               <div className="flex gap-10 justify-center h-150 items-center px-4">
                 <div className="space-y-6">
@@ -100,7 +100,7 @@ function Carousel() {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="max-w-full max-h-full object-contain hover:scale-105 transition-all"
+                    className="max-w-full max-h-full object-contain hover:scale-105 transition-all "
                   />
                 </div>
               </div>

@@ -2,9 +2,13 @@ import React from "react";
 import { useCart } from "../context/CartContext";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { LuNotebookText } from "react-icons/lu";
+import { MdDeliveryDining } from "react-icons/md";
+import { GiShoppingBag } from "react-icons/gi";
 
 const Cart = () => {
   const { cartItem } = useCart();
+  // محاسبه جمع قیمت محصولات
+  const totalPrice = cartItem.reduce((total, item) => total + item.price, 0);
   return (
     <div className="mt-10 max-w-6xl mx-auto mb-5 text-right md:px-8">
       {cartItem.length > 0 ? (
@@ -13,6 +17,7 @@ const Cart = () => {
             سبد خرید من ({cartItem.length})
           </h1>
           <div>
+            {/* بخش خرید نهایی */}
             <div className="mt-10">
               {cartItem.map((item, index) => {
                 return (
@@ -45,7 +50,57 @@ const Cart = () => {
                 );
               })}
             </div>
+            {/* بخش فاکتور */}
             <div className="grid grid-cols-2 gap-20">
+              <div className="bg-white border border-gray-100 shadow-xl rounded-md p-7 mt-4 space-y-2 h-max">
+                <h1 className="text-gray-800 font-Vazir-Bold text-xl">
+                  فاکتور فروش
+                </h1>
+                <div className="flex flex-row-reverse justify-between items-center ">
+                  <h1 className="flex flex-row-reverse gap-1 items-center text-gray-700 font-Vazir-Medium ">
+                    <span>
+                      <LuNotebookText />
+                    </span>
+                    مجموع هزینه کالا
+                  </h1>
+                  <p>${totalPrice}</p>
+                </div>
+                <div className="flex flex-row-reverse justify-between items-center">
+                  <h1 className="flex flex-row-reverse gap-1 items-center text-gray-700 font-Vazir-Medium ">
+                    <span>
+                      <MdDeliveryDining />
+                    </span>
+                    هزینه ارسال کالا
+                  </h1>
+                  <p className="text-red-500 font-Vazir-Medium">
+                    <span className="text-gray-600 line-through">$25</span>{" "}
+                    رایگان
+                  </p>
+                </div>
+                <div className="flex flex-row-reverse justify-between items-center">
+                  <h1 className="flex flex-row-reverse gap-1 items-center text-gray-700 font-Vazir-Medium ">
+                    <span>
+                      <GiShoppingBag />
+                    </span>
+                    هزینه بیمه کالا
+                  </h1>
+                  <p className="text-red-500 font-Vazir-Medium">$5</p>
+                </div>
+                <hr className="text-gray-200 mt-2" />
+                <div className="flex justify-between items-center">
+                  <p className="font-semibold text-lg">${totalPrice + 5}</p>
+                  <h1 className="font-Vazir-Bold text-lg">جمع کل فاکتور</h1>
+                </div>
+                <div>
+                  <h1 className="font-Vazir-Normal text-gray-700 mb-3 mt-7">کد تخفیف را اعمال کنید</h1>
+                    <div className="flex gap-3">
+                      <input type="text" className="p-2 rounded-md w-full font-Vazir-Thin text-right" placeholder="کد را وارد کنید" />
+                      <button className="bg-white text-black border border-gray-200 px-4 cursor-pointer py-1 rounded-md font-Vazir-Normal">اعمال</button>
+                    </div>
+                    <button className="bg-red-500 text-white px-3 py-2 rounded-md w-full cursor-pointer mt-3 font-Vazir-Normal">تسویه کردن</button>
+                </div>
+              </div>
+              {/* بخش اطلاعات ارسال کالا */}
               <div className="bg-gray-100 rounded-md p-7 mt-4 space-y-2">
                 <h1 className="text-gray-800 font-bold text-xl font-Vazir-Bold">
                   اطلاعات تحویل
