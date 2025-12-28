@@ -6,7 +6,6 @@ import { useCart } from "../context/CartContext";
 function ProductCard({ product }) {
   const navigate = useNavigate();
   const { addToCart,cartItem } = useCart();
-  console.log(cartItem)
   return (
     <div className="border relative border-gray-100 rounded-2xl cursor-pointer hover:scale-105 hover:shadow-2xl transition-all p-2 h-max">
       <img
