@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { toast } from "react-toastify";
 
 export const CartContext = createContext(null);
 export const CartProvider = ({ children }) => {
@@ -11,8 +12,10 @@ export const CartProvider = ({ children }) => {
         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       );
       setCartItem(updataCart);
+      toast.success("تعداد محصول افزایش پیدا کرد");
     } else {
       setCartItem([...cartItem, { ...product, quantity: 1 }]);
+      toast.success("محصول به سبد خرید اضافه شد");
     }
   };
 
@@ -24,8 +27,10 @@ export const CartProvider = ({ children }) => {
             let newUnit = item.quantity;
             if (action === "increase") {
               newUnit = newUnit + 1;
+              toast.success("تعداد افزایش پیدا کرد");
             } else if (action === "decrease") {
               newUnit = newUnit - 1;
+              toast.success("تعداد کاهش پیدا کرد");
             }
             return newUnit > 0 ? { ...item, quantity: newUnit } : null;
           }
@@ -37,6 +42,7 @@ export const CartProvider = ({ children }) => {
 
   const deleteItem = (productId) => {
     setCartItem(cartItem.filter((item) => item.id !== productId));
+    toast.error("محصول از سبد خرید حذف شد");
   };
   return (
     <CartContext.Provider
