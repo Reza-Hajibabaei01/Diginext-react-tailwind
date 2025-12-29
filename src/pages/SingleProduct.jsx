@@ -4,10 +4,12 @@ import { useParams } from "react-router-dom";
 import Loading from "../assets/images/Loading4.webm";
 import Breadcrums from "../components/Breadcrums";
 import { IoCartOutline } from "react-icons/io5";
+import { useCart } from "../context/CartContext";
 
 function SingleProduct() {
   const params = useParams();
   const [SingleProduct, setSingleProduct] = useState("");
+  const { addToCart } = useCart();
   const getSingleProduct = async () => {
     try {
       const res = await axios.get(
@@ -59,7 +61,9 @@ function SingleProduct() {
                   {SingleProduct?.rating?.rate} % تخفیف
                 </span>
               </p>
-              <p className="text-gray-600 text-right">{SingleProduct.description}</p>
+              <p className="text-gray-600 text-right">
+                {SingleProduct.description}
+              </p>
               {/* بخش تعداد */}
               <div className="flex flex-row-reverse items-center gap-4">
                 <label
@@ -76,7 +80,7 @@ function SingleProduct() {
                 />
               </div>
               <div className="flex flex-row-reverse gap-4 mt-4">
-                <button className="flex px-6 gap-2 py-2 text-lg bg-red-500 text-white cursor-pointer rounded-md font-Vazir-Normal">
+                <button onClick={()=>addToCart(SingleProduct)} className="flex px-6 gap-2 py-2 text-lg bg-red-500 text-white cursor-pointer rounded-md font-Vazir-Normal">
                   <IoCartOutline className="w-6 h-6" />
                   افزودن به سبد خرید
                 </button>
