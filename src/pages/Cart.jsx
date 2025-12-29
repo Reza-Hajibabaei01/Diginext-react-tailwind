@@ -4,9 +4,11 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { LuNotebookText } from "react-icons/lu";
 import { MdDeliveryDining } from "react-icons/md";
 import { GiShoppingBag } from "react-icons/gi";
+import { useUser } from "@clerk/clerk-react";
 
-const Cart = () => {
+const Cart = ({location,getLocation}) => {
   const { cartItem } = useCart();
+  const {user} = useUser();
   // محاسبه جمع قیمت محصولات
   const totalPrice = cartItem.reduce((total, item) => total + item.price, 0);
   return (
@@ -113,6 +115,7 @@ const Cart = () => {
                     type="text"
                     placeholder="نام ونام خانوادگی خود را وارد کنید"
                     className="p-2 rounded-md font-Vazir-Normal text-right"
+                    value={user.fullName}
                   />
                 </div>
                 <div className="flex flex-col space-y-1">
@@ -123,6 +126,7 @@ const Cart = () => {
                     type="text"
                     placeholder="آدرس خود را وارد کنید"
                     className="p-2 rounded-md font-Vazir-Normal text-right"
+                    // value={location.country}
                   />
                 </div>
                 <div className="flex w-full gap-5">
@@ -144,6 +148,7 @@ const Cart = () => {
                       type="text"
                       placeholder="کدپستی خود را وارد کنید"
                       className="p-2 rounded-md w-full font-Vazir-Normal text-right"
+                      // value={location.postcode}
                     />
                   </div>
                 </div>
@@ -156,6 +161,7 @@ const Cart = () => {
                       type="text"
                       placeholder="شهر خود را وارد کنید"
                       className="p-2 rounded-md w-full font-Vazir-Normal text-right"
+                      // value={location.city}
                     />
                   </div>
                   <div className="flex flex-col space-y-1 w-full">
@@ -176,7 +182,7 @@ const Cart = () => {
                   -----------یا-----------
                 </div>
                 <div className="flex justify-center">
-                  <button className="bg-red-500 text-white px-3 py-2 rounded-md font-Vazir-Normal">
+                  <button onClick={getLocation} className="bg-red-500 text-white px-3 py-2 rounded-md font-Vazir-Normal">
                     تشخیص مکان
                   </button>
                 </div>
