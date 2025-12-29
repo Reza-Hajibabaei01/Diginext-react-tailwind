@@ -34,9 +34,13 @@ export const CartProvider = ({ children }) => {
         .filter((item) => item != null)
     ); //حذف کامل محصولی که تعدادش به صفر رسیده
   };
+
+  const deleteItem = (productId) => {
+    setCartItem(cartItem.filter((item) => item.id !== productId));
+  };
   return (
     <CartContext.Provider
-      value={{ cartItem, setCartItem, addToCart, updateQuantity }}
+      value={{ cartItem, setCartItem, addToCart, updateQuantity, deleteItem }}
     >
       {children}
     </CartContext.Provider>

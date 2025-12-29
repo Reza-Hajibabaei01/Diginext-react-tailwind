@@ -6,9 +6,9 @@ import { MdDeliveryDining } from "react-icons/md";
 import { GiShoppingBag } from "react-icons/gi";
 import { useUser } from "@clerk/clerk-react";
 
-const Cart = ({location,getLocation}) => {
-  const { cartItem,updateQuantity } = useCart();
-  const {user} = useUser();
+const Cart = ({ location, getLocation }) => {
+  const { cartItem, updateQuantity, deleteItem } = useCart();
+  const { user } = useUser();
   // محاسبه جمع قیمت محصولات
   const totalPrice = cartItem.reduce((total, item) => total + item.price, 0);
   return (
@@ -28,13 +28,30 @@ const Cart = ({location,getLocation}) => {
                     className="bg-gray-100 p-5 rounded-md flex justify-end items-center mt-3"
                   >
                     <div className="flex items-center gap-10">
-                      <span className="hover:bg-white/60 transition-all rounded-full p-3 hover:shadow-2xl">
+                      <span
+                        onClick={() => deleteItem(item.id)}
+                        className="hover:bg-white/60 transition-all rounded-full p-3 hover:shadow-2xl"
+                      >
                         <FaRegTrashAlt className="text-red-500 text-2xl cursor-pointer" />
                       </span>
                       <div className="bg-red-500 text-white flex gap-4 p-2 rounded-md font-bold text-xl">
-                        <button onClick={()=>updateQuantity(cartItem,item.id,"increase")} className="cursor-pointer">+</button>
+                        <button
+                          onClick={() =>
+                            updateQuantity(cartItem, item.id, "increase")
+                          }
+                          className="cursor-pointer"
+                        >
+                          +
+                        </button>
                         <span>{item?.quantity}</span>
-                        <button onClick={()=>updateQuantity(cartItem,item.id,"decrease")} className="cursor-pointer">-</button>
+                        <button
+                          onClick={() =>
+                            updateQuantity(cartItem, item.id, "decrease")
+                          }
+                          className="cursor-pointer"
+                        >
+                          -
+                        </button>
                       </div>
                       <div className="text-right">
                         <h1 className="w-75 line-clamp-2">{item.title}</h1>
@@ -94,12 +111,22 @@ const Cart = ({location,getLocation}) => {
                   <h1 className="font-Vazir-Bold text-lg">جمع کل فاکتور</h1>
                 </div>
                 <div>
-                  <h1 className="font-Vazir-Normal text-gray-700 mb-3 mt-7">کد تخفیف را اعمال کنید</h1>
-                    <div className="flex gap-3">
-                      <input type="text" className="p-2 rounded-md w-full font-Vazir-Thin text-right" placeholder="کد را وارد کنید" />
-                      <button className="bg-white text-black border border-gray-200 px-4 cursor-pointer py-1 rounded-md font-Vazir-Normal">اعمال</button>
-                    </div>
-                    <button className="bg-red-500 text-white px-3 py-2 rounded-md w-full cursor-pointer mt-3 font-Vazir-Normal">تسویه کردن</button>
+                  <h1 className="font-Vazir-Normal text-gray-700 mb-3 mt-7">
+                    کد تخفیف را اعمال کنید
+                  </h1>
+                  <div className="flex gap-3">
+                    <input
+                      type="text"
+                      className="p-2 rounded-md w-full font-Vazir-Thin text-right"
+                      placeholder="کد را وارد کنید"
+                    />
+                    <button className="bg-white text-black border border-gray-200 px-4 cursor-pointer py-1 rounded-md font-Vazir-Normal">
+                      اعمال
+                    </button>
+                  </div>
+                  <button className="bg-red-500 text-white px-3 py-2 rounded-md w-full cursor-pointer mt-3 font-Vazir-Normal">
+                    تسویه کردن
+                  </button>
                 </div>
               </div>
               {/* بخش اطلاعات ارسال کالا */}
@@ -182,7 +209,10 @@ const Cart = ({location,getLocation}) => {
                   -----------یا-----------
                 </div>
                 <div className="flex justify-center">
-                  <button onClick={getLocation} className="bg-red-500 text-white px-3 py-2 rounded-md font-Vazir-Normal">
+                  <button
+                    onClick={getLocation}
+                    className="bg-red-500 text-white px-3 py-2 rounded-md font-Vazir-Normal"
+                  >
                     تشخیص مکان
                   </button>
                 </div>
