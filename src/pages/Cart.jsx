@@ -5,10 +5,13 @@ import { LuNotebookText } from "react-icons/lu";
 import { MdDeliveryDining } from "react-icons/md";
 import { GiShoppingBag } from "react-icons/gi";
 import { useUser } from "@clerk/clerk-react";
+import { useNavigate } from "react-router-dom";
+import emptyCart from "../assets/images/empty-cart.png";
 
 const Cart = ({ location, getLocation }) => {
   const { cartItem, updateQuantity, deleteItem } = useCart();
   const { user } = useUser();
+  const navigate = useNavigate();
   // محاسبه جمع قیمت محصولات
   const totalPrice = cartItem.reduce((total, item) => total + item.price, 0);
   return (
@@ -221,7 +224,18 @@ const Cart = ({ location, getLocation }) => {
           </div>
         </div>
       ) : (
-        <div className="font-Vazir-Bold">سبد خرید خالی است</div>
+        <div className="flex flex-col gap-3 justify-center items-center h-150">
+          <h1 className="text-red-500/80 font-Vazir-Bold text-5xl">
+            سبد خرید شما خالی می باشد
+          </h1>
+          <img src={emptyCart} alt="" className="w-100" />
+          <button
+            onClick={() => navigate("/products")}
+            className="bg-red-500 text-white px-3 py-2 rounded-md cursor-pointer font-Vazir-Normal"
+          >
+            رفتن به فروشگاه
+          </button>
+        </div>
       )}
     </div>
   );
