@@ -7,7 +7,7 @@ import { GiShoppingBag } from "react-icons/gi";
 import { useUser } from "@clerk/clerk-react";
 
 const Cart = ({location,getLocation}) => {
-  const { cartItem } = useCart();
+  const { cartItem,updateQuantity } = useCart();
   const {user} = useUser();
   // محاسبه جمع قیمت محصولات
   const totalPrice = cartItem.reduce((total, item) => total + item.price, 0);
@@ -32,9 +32,9 @@ const Cart = ({location,getLocation}) => {
                         <FaRegTrashAlt className="text-red-500 text-2xl cursor-pointer" />
                       </span>
                       <div className="bg-red-500 text-white flex gap-4 p-2 rounded-md font-bold text-xl">
-                        <button className="cursor-pointer">+</button>
-                        <span>1</span>
-                        <button className="cursor-pointer">-</button>
+                        <button onClick={()=>updateQuantity(cartItem,item.id,"increase")} className="cursor-pointer">+</button>
+                        <span>{item?.quantity}</span>
+                        <button onClick={()=>updateQuantity(cartItem,item.id,"decrease")} className="cursor-pointer">-</button>
                       </div>
                       <div className="text-right">
                         <h1 className="w-75 line-clamp-2">{item.title}</h1>
@@ -126,7 +126,7 @@ const Cart = ({location,getLocation}) => {
                     type="text"
                     placeholder="آدرس خود را وارد کنید"
                     className="p-2 rounded-md font-Vazir-Normal text-right"
-                    // value={location.country}
+                    value={location?.country}
                   />
                 </div>
                 <div className="flex w-full gap-5">
@@ -148,7 +148,7 @@ const Cart = ({location,getLocation}) => {
                       type="text"
                       placeholder="کدپستی خود را وارد کنید"
                       className="p-2 rounded-md w-full font-Vazir-Normal text-right"
-                      // value={location.postcode}
+                      value={location?.postcode}
                     />
                   </div>
                 </div>
@@ -161,7 +161,7 @@ const Cart = ({location,getLocation}) => {
                       type="text"
                       placeholder="شهر خود را وارد کنید"
                       className="p-2 rounded-md w-full font-Vazir-Normal text-right"
-                      // value={location.city}
+                      value={location?.city}
                     />
                   </div>
                   <div className="flex flex-col space-y-1 w-full">
