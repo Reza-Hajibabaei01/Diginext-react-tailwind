@@ -33,7 +33,7 @@ function SingleProduct() {
       {SingleProduct ? (
         <div className="px-4 pb-4 md:px-8">
           <Breadcrums title={SingleProduct.title} />
-          <div className="max-w-6xl mx-auto grid grid-cols-2 gap-10">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* بخش تصویر محصول */}
             <div className="w-full">
               <img
@@ -44,7 +44,7 @@ function SingleProduct() {
             </div>
             {/* بخش اطلاعات محصول */}
             <div className="flex flex-col gap-6">
-              <h1 className="md:text-3xl text-right font-bold text-gray-800">
+              <h1 className="md:text-3xl text-xl text-right font-bold text-gray-800">
                 {SingleProduct.title}
               </h1>
               {/* در دیوو پایین چون فعلا از آی‌پی برند دریافت نکردیم از کتگوری استفاده کردیم */}
