@@ -11,25 +11,28 @@ import { FaCaretDown } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
+import ResponsiveMenu from "./ResponsiveMenu";
 
 const Navbar = ({ location, openDropdown, setOpenDropdown, clearLocation }) => {
   const { cartItem } = useCart();
+  const [openNav, setOpenNav] = useState(false);
   const toggleDropdown = () => {
     setOpenDropdown(!openDropdown);
   };
 
   return (
-    <div className="bg-white py-3 md:px-8 shadow-2xl">
+    <div className="bg-white py-3 px-4 md:px-0 shadow-2xl">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* بخش لوگو سایت */}
         <div className="flex gap-7 items-center">
           <Link to={"/"}>
-            <h1 className="font-bold text-3xl items-center">
-              <span className="text-red-500 font-Vazir-Medium ">دیجی </span>
-              نکست‌{" "}
+            <h1 className="text-2xl font-Vazir-Bold items-center">
+              <span className="text-red-500">دیجی‌</span>
+              نکست‌
             </h1>
           </Link>
-          <div className="flex gap-1 cursor-pointer text-gray-700 items-center">
+          <div className="md:flex gap-1 cursor-pointer text-gray-700 items-center hidden">
             <MapPin className="text-red-500 text-sm h-5 w-5" />
             <span className="font-Vazir-Thin text-sm">
               {location ? (
@@ -62,7 +65,7 @@ const Navbar = ({ location, openDropdown, setOpenDropdown, clearLocation }) => {
         </div>
         {/* بخش منو سایت */}
         <nav className="flex gap-7 items-center">
-          <ul className="flex flex-row-reverse gap-7 items-center font-Vazir-Normal text-base">
+          <ul className="md:flex flex-row-reverse gap-7 items-center font-Vazir-Normal text-base hidden">
             <NavLink
               to={"/"}
               className={({ isActive }) =>
@@ -119,7 +122,7 @@ const Navbar = ({ location, openDropdown, setOpenDropdown, clearLocation }) => {
             </span>
           </Link>
           {/* بخش ورود با گوگل */}
-          <div>
+          <div className="hidden md:block">
             <SignedOut>
               <SignInButton className="bg-red-500 text-white px-3 py-1 rounded-md cursor-pointer" />
             </SignedOut>
@@ -127,8 +130,20 @@ const Navbar = ({ location, openDropdown, setOpenDropdown, clearLocation }) => {
               <UserButton />
             </SignedIn>
           </div>
+          {openNav ? (
+            <HiMenuAlt3
+              onClick={() => setOpenNav(false)}
+              className="h-7 md:hidden"
+            />
+          ) : (
+            <HiMenuAlt1
+              onClick={() => setOpenNav(true)}
+              className="h-7 md:hidden"
+            />
+          )}
         </nav>
       </div>
+      <ResponsiveMenu openNav={openNav} setOpenNav={setOpenNav} />
     </div>
   );
 };
