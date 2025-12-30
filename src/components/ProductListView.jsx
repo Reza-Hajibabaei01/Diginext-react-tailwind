@@ -11,16 +11,16 @@ function ProductListView({ product }) {
         <img
           src={product.image}
           alt={product.title}
-          className="h-60 w-60 rounded-md cursor-pointer"
+          className="md:h-60 md:w-60 h-25 w-25 rounded-md bg-white cursor-pointer"
           onClick={() => navigate(`/products/${product.id}`)}
         />
-        <div className="space-y-2 text-right">
-          <h1 className="font-Vazir-Bold text-xl line-clamp-3 hover:text-red-400 w-full">
+        <div className="space-y-2  text-right">
+          <h1 className="font-Vazir-Bold md:text-xl text-lg line-clamp-3 hover:text-red-400 md:w-full w-55">
             {product.title}
           </h1>
-          <p className="font-Vazir-Medium flex justify-end items-center text-lg ">
+          <p className="font-Vazir-Medium flex justify-end items-center md:text-lg text-sm ">
             ({product?.rating.rate}% تخفیف )$
-            <span className="text-4xl">{product.price}</span>
+            <span className="md:text-4xl text-2xl">{product.price}</span>
           </p>
           <p className="font-Vazir-Thin text-[12px]">
             ارسال رایگان <span className="font-Vazir-Bold">هفت روز کاری</span>{" "}
@@ -29,7 +29,10 @@ function ProductListView({ product }) {
             اما با ارسال سریع{" "}
             <span className="font-Vazir-Bold">دو روز کاری</span> تحویل بگیرید
           </p>
-          <button onClick={()=>addToCart(product)} className="bg-red-400 mt-3 text-white px-3 py-1 rounded-md font-Vazir-Normal">
+          <button
+            onClick={() => addToCart(product)}
+            className="bg-red-400 mt-3 text-white px-3 py-1 rounded-md font-Vazir-Normal"
+          >
             افزودن به سبد خرید
           </button>
         </div>
