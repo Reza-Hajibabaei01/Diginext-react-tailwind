@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { getData } from "../context/DataContext";
+import { useNavigate } from "react-router-dom";
 
 function Category() {
   const { categoryOnlyData } = getData();
+  const navigator = useNavigate();
 
   return (
     <div className="bg-[#101829]">
@@ -10,7 +12,10 @@ function Category() {
         {categoryOnlyData?.map((item, index) => {
           return (
             <div key={index}>
-              <button className="uppercase bg-linear-to-r from-red-500 to-purple-500 text-white px-3 py-1 rounded-md cursor-pointer">
+              <button
+                onClick={() => navigator(`/category/${item}`)}
+                className="uppercase bg-linear-to-r from-red-500 to-purple-500 text-white px-3 py-1 rounded-md cursor-pointer"
+              >
                 {item}
               </button>
             </div>
