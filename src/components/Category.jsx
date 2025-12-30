@@ -3,9 +3,18 @@ import { getData } from "../context/DataContext";
 import { useNavigate } from "react-router-dom";
 
 function Category() {
-  const { categoryOnlyData } = getData();
+  // const { categoryOnlyData } = getData();
   const navigator = useNavigate();
+  const { data } = getData();
 
+  const getUniqueCategory = (data, property) => {
+    let newVal = data?.map((curElem) => {
+      return curElem[property];
+    });
+    newVal = [...new Set(newVal)];
+    return newVal;
+  };
+  const categoryOnlyData = getUniqueCategory(data, "category");
   return (
     <div className="bg-[#101829]">
       <div className="max-w-7xl flex gap-4 items-center justify-around py-7 px-4">

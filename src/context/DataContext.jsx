@@ -9,7 +9,6 @@ export const DataProvider = ({ children }) => {
   const fetchAllProducts = async () => {
     try {
       const res = await axios.get("https://fakestoreapi.com/products/");
-      //category/electronics;
       const productsData = res.data;
       setData(productsData);
     } catch (error) {
