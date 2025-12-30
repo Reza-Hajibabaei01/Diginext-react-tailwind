@@ -8,7 +8,6 @@ import Category from "./Category";
 
 function Carousel() {
   const { data, fetchAllProducts } = getData();
-  //console.log(data);
 
   useEffect(() => {
     fetchAllProducts();

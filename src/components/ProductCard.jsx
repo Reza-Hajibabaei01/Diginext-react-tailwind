@@ -18,9 +18,9 @@ function ProductCard({ product }) {
       <p className="my-1 text-lg text-gray-800 font-bold">${product.price}</p>
       <button
         onClick={() => addToCart(product)}
-        className="bg-red-500 px-3 py-2 text-[14px] rounded-md text-white w-full cursor-pointer flex gap-2 items-center justify-center font-Vazir-Medium "
+        className="bg-red-500 px-1 md:px-3 py-2 text-[12px] md:text-sm rounded-md text-white w-full cursor-pointer flex gap-1 md:gap-2 items-center justify-center font-Vazir-Medium"
       >
-        <IoCartOutline className="w-6 h-6" />
+        <IoCartOutline className="md:w-6 md:h-6 w-4 h-4" />
         افزودن به سبد خرید
       </button>
     </div>
