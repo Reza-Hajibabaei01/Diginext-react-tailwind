@@ -24,13 +24,13 @@ function Features() {
             return (
               <div
                 key={index}
-                className="flex flex-row-reverse items-center justify-center text-center sm:text-right"
+                className="flex flex-row-reverse items-center justify-center text-center sm:text-right "
               >
                 <feature.icon
-                  className="shrink-0 ms-2 h-10 w-10 text-gray-600"
+                  className="shrink-0 ms-2 h-10 w-10 ml-auto text-gray-600"
                   aria-hidden="true"
                 />
-                <div className="ml-4">
+                <div className="md:ml-4 ml-auto">
                   <p className="text-base font-Vazir-Normal text-gray-900">
                     {feature.text}
                   </p>

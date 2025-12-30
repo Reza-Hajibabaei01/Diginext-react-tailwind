@@ -81,12 +81,12 @@ function Carousel() {
               key={index}
               className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e ] -z-10 md:px-8"
             >
-              <div className="flex gap-10 justify-center h-150 items-center px-4">
-                <div className="space-y-6">
+              <div className="flex flex-col md:flex-row gap-10 justify-center h-150 items-center my-20 md:my-0 px-4">
+                <div className="md:space-y-6 space-y-3">
                   <h3 className="text-red-500 font-semibold font-Vazir-Bold text-sm">
                     دنیای خود را با بهترین‌های تکنولوژی قدرتمند کنید
                   </h3>
-                  <h1 className="text-4xl font-bold uppercase line-clamp-3 md:w-125 text-white">
+                  <h1 className="md:text-4xl text-xl font-bold uppercase md:line-clamp-3 line-clamp-2 md:w-125 text-white">
                     {item.title}
                   </h1>
                   <p className="md:w-125 line-clamp-3 text-gray-400 pr-7">
@@ -96,11 +96,11 @@ function Carousel() {
                     خرید کنید
                   </button>
                 </div>
-                <div className="w-137.5 h-137.5 rounded-full overflow-hidden flex items-center justify-center shadow-2xl shadow-red-400">
+                <div className="rounded-full overflow-hidden flex items-center justify-center shadow-2xl shadow-red-400">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="max-w-full max-h-full object-contain hover:scale-105 transition-all "
+                    className="max-w-full max-h-full w-137.5 h-137.5 bg-white  object-contain hover:scale-105 transition-all "
                   />
                 </div>
               </div>
