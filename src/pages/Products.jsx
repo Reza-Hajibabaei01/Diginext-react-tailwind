@@ -6,6 +6,7 @@ import ProductCard from "../components/ProductCard";
 import Pagination from "../components/Pagination";
 import Lottie from "lottie-react";
 import notfound from "../assets/images/notfound.json";
+import MobileFilter from "../components/MobileFilter";
 
 const Products = () => {
   const { data, fetchAllProducts } = getData();
@@ -14,6 +15,7 @@ const Products = () => {
   const [brand, setBrand] = useState("همه");
   const [priceRange, setPriceRange] = useState([0, 5000]);
   const [page, setPage] = useState(1);
+  const [openFilter, setOpenFilter] = useState(false);
   useEffect(() => {
     fetchAllProducts();
     window.scrollTo(0, 0);
@@ -22,15 +24,18 @@ const Products = () => {
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
     setPage(1);
+    setOpenFilter(false);
   };
 
   const handleBrandChange = (e) => {
     setBrand(e.target.value);
     setPage(1);
+    setOpenFilter(false);
   };
 
   const pageHandler = (selectedPage) => {
     setPage(selectedPage);
+    window.scrollTo(0, 0);
   };
 
   const filterData = data?.filter(
@@ -47,6 +52,20 @@ const Products = () => {
   return (
     <div>
       <div className="max-w-6xl mx-auto px-4 mb-10">
+        <MobileFilter
+          openFilter={openFilter}
+          setOpenFilter={setOpenFilter}
+          search={search}
+          setSearch={setSearch}
+          brand={brand}
+          setBrand={setBrand}
+          priceRange={priceRange}
+          setPriceRange={setPriceRange}
+          category={category}
+          setCategory={setCategory}
+          handleCategoryChange={handleCategoryChange}
+          handleBrandChange={handleBrandChange}
+        />
         {data?.length > 0 ? (
           <>
             <div className="flex flex-row-reverse gap-8 ">
