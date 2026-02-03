@@ -145,7 +145,7 @@ const Cart = ({ location, getLocation }) => {
                     type="text"
                     placeholder="نام ونام خانوادگی خود را وارد کنید"
                     className="p-2 rounded-md font-Vazir-Normal text-right"
-                    value={user.fullName}
+                    // value={user.fullName}
                   />
                 </div>
                 <div className="flex flex-col space-y-1">
