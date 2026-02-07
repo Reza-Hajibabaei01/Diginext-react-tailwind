@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const About = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex items-center justify-center bg-[#DEDEDE]">
       <div
@@ -60,9 +62,12 @@ const About = () => {
             دیجی‌نکست همه چیز دارد.
           </p>
           <div className="w-full flex justify-center items-center">
-              <button className="text-white text-sm font-Vazir-Light bg-red-500 px-3 py-1 rounded-md">
-                خرید شروع کنید
-              </button>
+            <button
+              onClick={() => navigate("/Products")}
+              className="text-white text-sm font-Vazir-Light bg-red-500 px-3 py-1 rounded-md"
+            >
+              خرید شروع کنید
+            </button>
           </div>
         </div>
       </div>
