@@ -78,7 +78,7 @@ function Carousel() {
           return (
             <div
               key={index}
-              className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e ] -z-10 md:px-8"
+              className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] -z-10 md:px-8"
             >
               <div className="flex flex-col md:flex-row gap-10 justify-center h-150 items-center my-20 md:my-0 px-4">
                 <div className="md:space-y-6 space-y-3">
