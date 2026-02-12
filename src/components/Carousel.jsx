@@ -80,26 +80,26 @@ function Carousel() {
               key={index}
               className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] -z-10 md:px-8"
             >
-              <div className="flex flex-col md:flex-row gap-10 justify-center h-150 items-center my-20 md:my-0 px-4">
+              <div className="flex flex-col sm:px-10 md:flex-row sm:gap-3 gap-10 justify-center h-100 lg:h-150 items-center my-20 md:my-0 px-4">
                 <div className="md:space-y-6 space-y-3">
-                  <h3 className="text-red-500 font-semibold font-Vazir-Bold text-sm">
+                  <h3 className="text-red-500 font-semibolda font-Vazir-Bold text-sm">
                     دنیای خود را با بهترین‌های تکنولوژی قدرتمند کنید
                   </h3>
-                  <h1 className="md:text-4xl text-xl font-bold uppercase md:line-clamp-3 line-clamp-2 md:w-125 text-white">
+                  <h1 className="md:text-4xl text-xl font-bold uppercase line-clamp-1  lg:line-clamp-2 md:w-125 text-white">
                     {item.title}
                   </h1>
                   <p className="md:w-125 line-clamp-3 text-gray-400 pr-7">
                     {item.description}
                   </p>
-                  <button className="bg-linear-to-r from-red-500 to-purple-500 text-white px-3 py-2 rounded-md cursor-pointer mt-2 font-Vazir-Normal">
+                    <button className="bg-linear-to-r from-red-500 to-purple-500 text-white px-3 py-2 rounded-md cursor-pointer mt-2 font-Vazir-Normal">
                     خرید کنید
                   </button>
                 </div>
-                <div className="rounded-full overflow-hidden flex items-center justify-center shadow-2xl shadow-red-400">
+                <div className="rounded-full  h-70 w-70 bg-white overflow-hidden flex items-center justify-center shadow-2xl shadow-red-400">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="max-w-full max-h-full w-137.5 h-137.5 bg-white  object-contain hover:scale-105 transition-all "
+                    className="max-w-full max-h-full sm:h-300 sm:w-50 md:w-50 md:h-50 lg:w-100 lg:h-100  bg-white object-scale-down hover:scale-105 transition-all "
                   />
                 </div>
               </div>

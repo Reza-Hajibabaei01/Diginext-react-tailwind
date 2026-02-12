@@ -17,20 +17,20 @@ const features = [
 ];
 function Features() {
   return (
-    <div className="bg-gray-100 flex-row-reverse py-8 px-4 lg:px-8">
+    <div className="bg-gray-100 flex-row-reverse pb-8 px-4 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
+        <div className="grid grid-cols-1 pt-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 gap-x-8">
           {features.map((feature, index) => {
             return (
               <div
                 key={index}
-                className="flex flex-row-reverse items-center justify-center text-center sm:text-right "
+                className="flex flex-row-reverse items-center justify-around text-center sm:text-right "
               >
                 <feature.icon
-                  className="shrink-0 ms-2 h-10 w-10 ml-auto text-gray-600"
+                  className="shrink-0 ms-2 h-10 w-10 text-gray-600"
                   aria-hidden="true"
                 />
-                <div className="md:ml-4 ml-auto">
+                <div className=" grid justify-center items-center w-60 ">
                   <p className="text-base font-Vazir-Normal text-gray-900">
                     {feature.text}
                   </p>
