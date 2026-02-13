@@ -1,16 +1,53 @@
-# React + Vite
+# DigiNext - فروشگاه آنلاین با React و Tailwind CSS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+DigiNext یک وب‌سایت فروشگاهی طراحی‌شده با استفاده از React و Tailwind CSS است که با امکاناتی چون ثبت‌نام با حساب گوگل، فیلتر محصولات، و موقعیت‌یابی کاربر، تجربه خرید آنلاین راحت و جذابی را فراهم می‌کند.
 
-Currently, two official plugins are available:
+## ویژگی‌ها
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🛒 ثبت‌نام با حساب گوگل برای راحتی بیشتر کاربران
+- 📍 پیدا کردن موقعیت مکانی کاربر برای ارائه خدمات دقیق‌تر
+- 💳 صدور فاکتور پس از خرید برای شفافیت بیشتر در فرایند خرید
+- 🔎 فیلتر کردن محصولات بر اساس ویژگی‌های مختلف برای جستجوی سریع‌تر
+- 📱 طراحی ریسپانسیو برای سازگاری با انواع دستگاه‌ها (sm, md, lg, xl)
+- 💡 استفاده از فونت‌های وزیر و ایران سنس برای متن فارسی
+- 🌍 طراحی راست‌چین برای راحتی کاربران فارسی‌زبان
 
-## React Compiler
+## dependencies استفاده‌شده
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+در این پروژه از dependencies زیر استفاده شده است:
 
-## Expanding the ESLint configuration
+- @clerk/clerk-react: برای مدیریت کاربران و ثبت‌نام با حساب گوگل
+- @tailwindcss/vite: برای تنظیمات و استفاده از Tailwind CSS
+- axios: برای ارسال درخواست‌های HTTP
+- lottie-react: برای استفاده از انیمیشن‌های Lottie
+- lucide-react: برای آیکن‌های مدرن
+- react: فریمورک اصلی برای ساخت رابط کاربری
+- react-dom: برای رندر کردن اجزای React در DOM
+- react-icons: برای استفاده از آیکن‌ها در UI
+- react-router-dom: برای مدیریت روتینگ در اپلیکیشن
+- react-scroll-to-top: برای افزودن قابلیت برگشت به بالای صفحه
+- react-slick: برای ایجاد اسلایدر محصولات
+- react-toastify: برای نمایش نوتیفیکیشن‌ها
+- slick-carousel: برای استفاده از اسلایدرهای کاربرپسند
+- tailwindcss: برای استایل‌دهی سریع و کاربردی
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## نصب و راه‌اندازی
+
+### پیش‌نیازها
+
+قبل از شروع، مطمئن شوید که ابزارهای زیر را نصب کرده‌اید:
+
+- [Node.js](https://nodejs.org/en/) نسخه 14 یا بالاتر
+- [npm](https://www.npmjs.com/) یا [Yarn](https://yarnpkg.com/)
+
+### مراحل نصب
+
+1. کلون کردن مخزن گیت
+
+   ابتدا مخزن را به سیستم خود کلون کنید:
+
+   `bash 
+
+   git clone https://github.com/Reza-Hajibabaei01/Diginext-react-tailwind.git
+   
+   cd DigiNext `

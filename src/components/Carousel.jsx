@@ -74,7 +74,7 @@ function Carousel() {
   return (
     <div>
       <Slider {...settings}>
-        {data?.slice(0, 7)?.map((item, index) => {
+        {data?.slice(8, 10)?.map((item, index) => {
           return (
             <div
               key={index}
