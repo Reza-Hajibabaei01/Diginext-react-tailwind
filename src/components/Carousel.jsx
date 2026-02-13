@@ -95,11 +95,11 @@ function Carousel() {
                     خرید کنید
                   </button>
                 </div>
-                <div className="rounded-full md:h-50 md:w-50 h-70 w-70 bg-white overflow-hidden flex items-center justify-center shadow-2xl shadow-red-400">
+                <div className="rounded-full xl:h-110 xl:w-110 lg:w-100 lg:h-80 md:h-50 md:w-70 sm:h-70 sm:w-70 bg-white overflow-hidden flex items-center justify-center shadow-2xl shadow-red-400">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="max-w-full max-h-full sm:h-300 sm:w-50 md:w-30 md:h-30 lg:w-70 lg:h-70  bg-white object-scale-down hover:scale-105 transition-all "
+                    className="max-w-full max-h-full xl:h-100 xl:w-100 lg:w-90 lg:h-90 md:w-60 md:h-60 sm:w-60 sm:h-60 bg-white object-scale-down hover:scale-105 transition-all "
                   />
                 </div>
               </div>
