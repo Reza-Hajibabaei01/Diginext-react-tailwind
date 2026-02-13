@@ -15,7 +15,7 @@ const Cart = ({ location, getLocation }) => {
   // محاسبه جمع قیمت محصولات
   const totalPrice = cartItem.reduce((total, item) => total + item.price, 0);
   return (
-    <div className="mt-10 max-w-6xl mx-auto mb-5 text-right px-4 md:px-0">
+    <div className="mt-10 max-w-6xl mx-auto mb-5 text-right px-4">
       {cartItem.length > 0 ? (
         <div>
           <h1 className="font-Vazir-Bold text-2xl">
