@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <div
       dir="rtl"
-      className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] flex justify-center items-center px-32"
+      className="bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] flex justify-center items-center px-8 md:px-20 lg:px-30"
     >
       <div className="bg-[#3a3a63]/50 my-20 px-6 pb-5 rounded-2xl">
         <div className="font-Vazir-Bold text-2xl text-white text-center py-5 ">
@@ -13,9 +13,9 @@ const Contact = () => {
             با <span className="text-red-500">دیجی‌نکست</span> تماس بگیرید
           </h1>
         </div>
-        <div className="flex justify-around items-start space-x-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 justify-around items-start space-y-4 md:space-y-8 space-x-8">
           {/* بخش اطلاعات تماس */}
-          <div className="w-1/2 space-y-2">
+          <div className="space-y-2">
             <div className="space-y-2">
               <h2 className="text-white font-Vazir-Bold">اطلاعات تماس</h2>
               <p className="font-Vazir-Normal text-sm text-gray-300">
@@ -46,7 +46,7 @@ const Contact = () => {
             </div>
           </div>
           {/* بخش فرم های ارسالی */}
-          <div className="w-1/2 space-y-3">
+          <div className="space-y-3">
             <div className="flex flex-col space-y-1">
               <label
                 className="font-Vazir-Normal text-white text-sm"
