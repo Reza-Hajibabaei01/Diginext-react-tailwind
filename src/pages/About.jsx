@@ -7,7 +7,7 @@ const About = () => {
     <div className="flex items-center justify-center bg-[#DEDEDE]">
       <div
         dir="rtl"
-        className="bg-white my-7 mx-28 w-full py-5 px-10 rounded-lg"
+        className="bg-white my-7 mx-6 md:mx-18 lg:mx-28 w-full py-5 px-10 rounded-lg"
       >
         <div>
           <h1 className="text-center font-Vazir-Bold text-xl">
